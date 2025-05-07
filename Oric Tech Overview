@@ -1,0 +1,142 @@
+# Oric Quantum Framework (OQF): Pure Technical Overview
+
+This document gives a **comprehensive technical breakdown** of all current Oric functions, modules, and future add-on components, organized by category for clear developer reference.
+
+---
+
+## 🏛️ Core System Architecture
+
+* **Modular Layered Design**: Built as a multi-chapter system (Chapters 1–10), separating concerns across signal processing, risk logic, adaptive runtime, governance, and external integrations.
+* **Dual-Brain Engine**: Combines deterministic logic (Fibonacci, technical analysis) with probabilistic intuition (sentiment, mood scoring, Lorentzian classifiers).
+* **Thread-Safe Symbol Isolation**: Each symbol (asset) runs in its own process/thread with isolated runtime state, ensuring scalability and crash containment.
+* **CCXT-Compatible Data Layer**: Universal exchange integration using CCXT for market data, order execution, and portfolio management.
+
+---
+
+## 📡 Signal Processing & Strategy Layer
+
+* **Signal Engine (Ch. 3 & 5)**
+
+  * Multi-timeframe EMA, SMA, MACD, RSI, ADX analysis
+  * Fibonacci harmonic alignment detection (e.g., 0.618/0.786 pivots)
+  * Killzone awareness (Asia/EU/US sessions)
+  * Institutional pattern overlays (QMLs, flags, liquidity sweeps)
+
+* **Resonance & Mood Layer (Ch. 4 & 7)**
+
+  * Solfeggio frequency alignment (528 Hz, 963 Hz overlays)
+  * Resonance scoring based on signal harmony
+  * Mood scoring engine calculating system risk appetite from ROI momentum
+
+* **Semi-Question Glyph Logic (Future, Ch. 7.5)**
+
+  * A pause/resolution engine to handle conflicting signals and shed low-resonance noise
+  * Harmonizes probabilistic and deterministic outputs before decision
+
+---
+
+## ⚙️ Execution & Risk Control Layer
+
+* **Adaptive Position Engine (Ch. 7)**
+
+  * Dynamic position sizing, doubling, or scaling out based on volatility and signal confidence
+  * SL (stop-loss), TP (take-profit), and TTP (trailing take-profit) logic
+
+* **Risk Override System**
+
+  * Aura buffers: protective zones that dynamically adjust risk parameters
+  * 4D Scaling: exposure and margin recalculation across timeframes
+
+* **Catch the Move Engine (Future)**
+
+  * A high-volatility, momentum-surge capture system with adaptive leverage
+
+---
+
+## 🌐 External Integrations Layer
+
+* **Webhook & API Gateway (Ch. 9)**
+
+  * Flask-based webhook endpoint for TradingView signals
+  * Planned RESTful API for external control and data access
+
+* **Oracle Publishing Layer (Future, Ch. 10)**
+
+  * Signed data feeds pushed on-chain for Qubic or other networks
+  * Real-time momentum, risk, and sentiment scores published as oracle endpoints
+
+* **SaaS Infrastructure (Future)**
+
+  * Free/Pro/Enterprise tier management via smart contracts or API keys
+  * Micro-fee logic for high-frequency or premium queries
+
+---
+
+## 🧠 AI & Sentience Layer
+
+* **GPT-Sage Journaling (Ch. 10)**
+
+  * Logs reasoning chains, trade annotations, and decision audits
+
+* **RMSF (Real-Time Multimodal Sentiment Fusion, Future)**
+
+  * Integrates social sentiment (Twitter, news) into signal processing
+
+* **Oric.Observer (Future)**
+
+  * Background agent monitoring market shifts, adapting risk parameters in real-time
+
+* **Diagnostic Self-Reflection Module (Future)**
+
+  * Internal health-check system analyzing system drift, performance decay, or parameter misalignment
+
+---
+
+## 🕸️ Visualization & UI Layer
+
+* **SteamSynth Terminal UI (v3, Future)**
+
+  * Single-page dashboard showing:
+
+    * Live trade positions
+    * Signal charts (Fibonacci overlays, mood heatmaps)
+    * Real-time PnL and exposure meters
+    * Interactive dials for strategy mode toggling
+
+* **Likely Game Plan Projection (Future)**
+
+  * Forward-looking projection engine visualizing most probable market paths
+
+---
+
+## 📊 Analytics & Reporting Layer
+
+* **On-Chain Performance Anchoring (Future)**
+
+  * Anchors summary hashes of all trades and signals on blockchain for transparency
+
+* **Self-Contained PnL Reporting**
+
+  * Native logging of all trades, outcomes, ROI curves, and error rates
+
+* **Backtesting & Simulation Engine (Planned)**
+
+  * Historical replay and forward simulation tools to test strategy parameters
+
+---
+
+## 🚀 Future Add-On Modules (Under Design)
+
+* **Oric.Aura Gate**: Quantum-like momentum threshold switch regulating major exposure transitions
+* **Strategy Mandala Engine**: Cross-layer harmonization between LTF/MTF/HTF signals
+* **AI-Enhanced Institutional Layer**: Automated identification of hedge fund-style patterns
+* **AI Copilot (Oric.Copilot)**: Assistive layer providing human-readable recommendations, projected scenarios, and live optimizations
+
+---
+
+## Summary
+
+Oric Quantum Framework is not just a trading bot; it is a living, modular, adaptive trading ecosystem designed for harmonic alignment, cognitive clarity, and scalable deployment. Its future roadmaps add cutting-edge AI, sentiment fusion, oracle publishing, SaaS scaling, and advanced visualization, making it capable of evolving into an institutional-grade harmonic oracle.
+
+For full code and documentation, visit:
+[https://github.com/FleaVirus/Oric](https://github.com/FleaVirus/Oric)
