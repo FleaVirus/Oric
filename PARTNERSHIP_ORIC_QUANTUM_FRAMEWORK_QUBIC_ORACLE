@@ -167,8 +167,45 @@ For detailed technical documentation, architecture diagrams, and visual models, 
 🔗 https://github.com/FleaVirus/Oric
 
 ---
+graph TD
+    A[Oric Core Engine]
+    A --> B1[Signal Processing Layer]
+    A --> B2[Risk Management Layer]
+    A --> B3[Position Execution Layer]
+    A --> B4[UI + Visualization Layer]
+    A --> B5[Adaptive Runtime Layer]
+    A --> B6[AI Fusion & GPT Layer]
+    A --> B7[Oracle Publishing Layer (Future)]
 
-**[Note for final document: INSERT here Mermaid flowchart or visual diagram of Oric’s layered architecture + SaaS tiers.]**
+    B1 --> C1[Market Data Ingestion (CCXT, WebSockets)]
+    B1 --> C2[Harmonic Pattern Recognition (Fibonacci, Solfeggio)]
+    B1 --> C3[Sentiment Fusion (RMSF)]
+
+    B2 --> C4[Stop-Loss / Take-Profit]
+    B2 --> C5[Trailing Take-Profit]
+    B2 --> C6[Dynamic Scaling / Aura Buffers]
+
+    B3 --> C7[Trade Signal Execution]
+    B3 --> C8[Order Routing (Exchange APIs, QX Trading)]
+
+    B4 --> C9[Single-Page UI Dashboard]
+    B4 --> C10[PnL Reports, Signal Charts, Mood Scores]
+
+    B5 --> C11[Mode Switching (Normal, Build, Swing, Scalp)]
+    B5 --> C12[Semi-Question Glyph Resolver]
+    B5 --> C13[Session-Aware Execution (Killzone Logic)]
+
+    B6 --> C14[GPT Journaling]
+    B6 --> C15[AI Signal Reasoning]
+    B6 --> C16[Institutional Pattern Detection (IPA Layer)]
+
+    B7 --> C17[Qubic Oracle Contract Integration]
+    B7 --> C18[Smart Contract Data Feeds]
+    B7 --> C19[Governance Signal Publishing]
+
+    click A href "https://github.com/FleaVirus/Oric"
+    click B1 href "https://github.com/FleaVirus/Oric/blob/main/Symposium%20Paper.md"
+    click B6 href "https://github.com/FleaVirus/Oric/blob/main/OricTheSage.Trading.virus.md"
 
 
 
