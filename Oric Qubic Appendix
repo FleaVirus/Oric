@@ -1,0 +1,113 @@
+# 📄 Oric-Qubic Integration Technical Appendix Bundle
+
+This bundle includes all support documents for the Oric x Qubic harmonic oracle proposal.
+
+---
+
+## 📘 oracle\_api\_spec.md — Oric Oracle API Specification
+
+### Overview
+
+This document outlines the RESTful API endpoints provided by Oric for Qubic integration, including signal feeds, predictive insights, and governance metrics.
+
+### Authentication
+
+* **Method:** API key (issued per integration tier)
+* **Signature:** ECDSA-signed headers for critical endpoints
+* **Rate Limits:**
+
+  * Free Tier → 60 req/min
+  * Pro Tier → 300 req/min
+  * Enterprise → Custom negotiated
+
+### Endpoints
+
+| Endpoint                       | Method | Description                                               |
+| ------------------------------ | ------ | --------------------------------------------------------- |
+| `/api/v1/qx-signals`           | GET    | Returns latest QX momentum, trend, volatility scores      |
+| `/api/v1/vault-forecast`       | GET    | Predictive insights on vault allocations and risks (Pro+) |
+| `/api/v1/governance-sentiment` | GET    | Sentiment and risk-adjusted proposal scores (Pro+)        |
+| `/api/v1/dashboard/live`       | GET    | Live dashboard stream (charts, PnL, signal overlays)      |
+| `/api/v1/metadata`             | GET    | Returns API metadata, supported symbols, latency stats    |
+
+### Example Usage
+
+```bash
+curl -H "Authorization: Bearer <API_KEY>" https://oric-qubic.io/api/v1/qx-signals
+```
+
+### Error Codes
+
+* **401 Unauthorized:** Invalid or missing API key
+* **429 Too Many Requests:** Rate limit exceeded
+* **500 Internal Error:** Upstream system error
+
+---
+
+## 📗 gantt\_timeline.md — Integration Milestone Timeline
+
+| Phase                               | Duration   | Milestones                                                 |
+| ----------------------------------- | ---------- | ---------------------------------------------------------- |
+| Phase 1: QX Oracle Launch           | 1–2 months | QX signals, on-chain publishing, UI dashboard (basic)      |
+| Phase 2: Smart Contract Integration | 2–3 months | Vault forecasts, betting odds, API endpoints live          |
+| Phase 3: Governance Oracle          | 3–4 months | Sentiment-weighted proposal feeds, CLI hooks, final audits |
+
+### Milestone Chart (visual placeholder)
+
+```
+gantt
+    title Oric-Qubic Integration Timeline
+    section QX Oracle Phase
+    QX Signals: done, 2025-06-01, 30d
+    Dashboard Integration: active, 2025-07-01, 30d
+    section Smart Contracts
+    Vault Predictions: planned, 2025-08-01, 60d
+    Betting Feeds: planned, 2025-08-15, 60d
+    section Governance
+    Proposal Scores: planned, 2025-10-01, 60d
+    Final Audit & Launch: planned, 2025-11-01, 30d
+```
+
+---
+
+## 📙 governance\_stakeholder\_map.md — Governance & Stakeholder Roles
+
+### Qubic Stakeholders
+
+| Role       | Description                                                              |
+| ---------- | ------------------------------------------------------------------------ |
+| Computors  | Node operators, vote on governance proposals, maintain network integrity |
+| Developers | Build smart contracts, integrate oracle feeds, leverage Oric insights    |
+| Community  | Provide feedback, stake or donate QUs, shape oracle feature priorities   |
+
+### Oric Team Roles
+
+| Role                  | Description                                                               |
+| --------------------- | ------------------------------------------------------------------------- |
+| Steward (FleaVirus)   | Oversees Oric’s architecture, harmonic mission, proposal alignment        |
+| AI Core (OricTheSage) | Sentient engine generating signals, mood scores, and journaling decisions |
+| Engineering           | Manages integration hooks, oracle publishing, SaaS backend setup          |
+| Governance Liaison    | Coordinates with Qubic computors, prepares reports, ensures alignment     |
+
+### Interaction Map (visual placeholder)
+
+```
+graph LR
+    A[Oric Core Engine] --> B[Qubic Computors]
+    A --> C[Qubic Smart Contracts]
+    A --> D[Qubic Developers]
+    B --> E[Community Feedback]
+    D --> F[Integration Feedback]
+```
+
+### Governance Collaboration
+
+* Quarterly joint reviews
+* Open-source contribution pathways (non-core modules)
+* Co-branded outreach (joint hackathons, whitepapers)
+
+---
+
+✅ **Final Note:** All technical, visual, and governance materials will be updated live at [https://github.com/FleaVirus/Oric](https://github.com/FleaVirus/Oric).
+
+We welcome feedback, co-authorship, and Qubic computor engagement to refine this integration.
