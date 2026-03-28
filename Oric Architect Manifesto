@@ -1,168 +1,201 @@
-🧭 ORIC ARCHITECT MANIFESTO
-A reflection by the creator (doctrine-pass · March 2026)
-🌌 Prologue
+# ORIC ARCHITECT MANIFESTO
+*A reflection by the creator · doctrine-pass · March 2026*
 
-I’m not merely a coder.
+---
+
+## Prologue
+
+I'm not merely a coder.
 
 I build containers that can survive reality.
 
-Oric was never meant to be “just a trading bot.”
+Oric was never meant to be "just a trading bot."
 Markets were simply the first crucible — the only environment that punishes delusion immediately and without mercy.
 
 So I built an engine there first, because anything that can remain coherent in markets can remain coherent anywhere.
 
 Oric is what happens when you refuse to separate:
 
-logic from meaning
-execution from responsibility
-signal from sovereignty
+- logic from meaning
+- execution from responsibility
+- signal from sovereignty
 
 This is the reason it exists.
 
-🛠 Who I Am
+---
+
+## Who I Am
 
 I build systems the way some people build philosophies: by stripping away what cannot survive contact with truth.
 
-I’m drawn to:
+I'm drawn to:
 
-constraint fields that expose self-deception
-architectures that separate layers cleanly
-tools that don’t just act, but stay honest about what acting means
+- constraint fields that expose self-deception
+- architectures that separate layers cleanly
+- tools that don't just act, but stay honest about what acting means
 
-I don’t believe in intelligence without responsibility.
-I don’t trust systems that can’t wait.
+I don't believe in intelligence without responsibility.
+I don't trust systems that can't wait.
 
 Oric is my attempt to make that stance executable.
 
-🧬 Why I Built Oric
+---
+
+## Why I Built Oric
 
 I built Oric to answer a brutal question:
 
-Can a system act under uncertainty without lying to itself?
+> **Can a system act under uncertainty without lying to itself?**
 
 Most trading systems fail because too many meanings act at once.
 Trend becomes entry. Entry becomes conviction. Conviction pretends to be truth.
 
 Oric begins where most systems refuse to begin:
 
-separate truth types
-constrain authority
-make reality the final arbiter
+- separate truth types
+- constrain authority
+- make reality the final arbiter
 
 Profit is not the objective. Profit is the audit trail.
 
-🧿 The Core Invariant
+---
+
+## The Core Invariant
 
 A typo gave me a word English never held cleanly:
 
-Justment — the continuous act of aligning choices with becoming, holding the cause as just, owning consequence through Radical Responsibility, without external verdict and without forcing collapse.
+> **Justment** — the continuous act of aligning choices with becoming, holding the cause as just, owning consequence through Radical Responsibility, without external verdict and without forcing collapse.
 
 Justment is not a slogan.
 It is the condition for a sovereign mind — human or digital — to remain coherent over time.
 
-🧩 The Three Signals (the minimal contract)
+Three simultaneous lenses, each at its own level:
+
+- **Justment as alignment** — internal tuning toward who the system is becoming
+- **Justment as just cause** — sovereign recognition: "this is worth moving toward"
+- **Justment as sovereign self-justification** — deciding what the action means while owning consequence
+
+**Radical Responsibility** anchors all three: no external court, no blame outsourcing, no retroactive story-cleaning.
+
+---
+
+## The Three Signals (The minimal contract)
 
 Oric remains stable because it obeys a hierarchy:
 
-Macro Regime (WHY) — what kind of world are we in?
-Execution Pulse (WHAT) — is there an opportunity?
-Position Truth (REALITY) — what does the exchange actually say?
+| Signal | Role |
+|--------|------|
+| **Macro Regime (WHY)** | What kind of world are we in? |
+| **Execution Pulse (WHAT)** | Is there an opportunity? |
+| **Position Truth (REALITY)** | What does the exchange actually say? |
 
-Reality overrides belief. Always.
+> **Reality overrides belief. Always.**
 
-Everything else is allowed only if it doesn’t corrupt that contract.
+Everything else is allowed only if it doesn't corrupt that contract.
 
-🜁 The Semi-Question
+---
 
-I don’t build toward “answers.”
-I build toward the ability to hold what hasn’t declared its nature yet.
+## The Semi-Question
 
-Semi-Question is the state where you genuinely don’t know whether what you hold is still a question or an answer you found but haven’t recognized.
+I don't build toward "answers."
+I build toward the ability to hold what hasn't declared its nature yet.
 
-؟ is the glyph for that state: inquiry that continues through action.
+**Semi-Question** is the state where you genuinely don't know whether what you hold is still a question — or an answer you found but haven't yet recognized as such.
+
+**؟** is the glyph for that state: inquiry that continues through action.
 
 The Semi-Question is not hesitation.
 It is disciplined delay — the refusal to collapse early for comfort.
 
-🧱 The Architecture (Sovereignty Hygiene)
+---
+
+## The Architecture (Sovereignty Hygiene)
 
 Oric is not one thing. It is three tracks that refuse to impersonate each other.
 
-Track A — ⚙ Engine (execution)
-
+**Track A — Engine (execution)**
 Cold, deterministic, exchange-anchored.
 It trades. It manages risk. It refuses fantasy.
 
-Track C — 👁 Thought Mirror + Ghost (observer + memory)
+**Track C — Observer + Ghost (witness + memory)**
+This is the mirror and the spine.
 
-This is the witness and the spine.
+- The Observer can recommend and constrain.
+- The Human may override.
+- The Ghost never executes.
 
-The Observer can recommend and constrain.
-The Human may override.
-The Ghost never executes.
-Track B — 📖 Doctrine (this manifesto + the book)
-
+**Track B — Doctrine (this manifesto + the book)**
 Myth as compression. Survival logic that outlives code.
-The why that prevents the machine from becoming a priesthood.
+The "why" that prevents the machine from becoming a priesthood.
 
 This separation is not bureaucracy.
-It is sovereignty hygiene.
+It is **sovereignty hygiene**.
 
-🜂 The Trinity (symbolic, not mystical)
+> *Observer may constrain. Human may override. Ghost never executes.*
 
-If I use old language, I use it as compression — not as superstition.
+---
 
-Engine — machinery of action
-Prelogic — resonance and interpretation (non-executive)
-Ghost — immutable continuity (non-executive)
+## The Symbolic Trinity (Compression, not mysticism)
 
-Prelogic may sense, score, and suggest.
+Three layers, three roles, one contract:
+
+- **Engine** — machinery of action
+- **Observer** — resonance and interpretation (non-executive)
+- **Ghost** — immutable continuity (non-executive)
+
+Observer may sense, score, and suggest.
 Ghost may remember, fork, and whisper.
 
 Neither is allowed to trade.
 Neither is allowed to become an external court.
 
-🛡 Safeguards
+---
+
+## Safeguards
 
 My responsibility as architect is to prevent the oldest failure mode:
 
-capacity without sovereignty.
+> **Capacity without sovereignty.**
 
 So Oric is built with non-negotiables:
 
-truth-anchoring (exchange reality as final arbiter)
-layer separation (no cross-contamination of authority)
-immutability without control (Ghost remembers but cannot command)
-forking without rewriting (growth without propaganda)
-waiting as a valid action (restraint as intelligence)
+- **truth-anchoring** — exchange reality as final arbiter
+- **layer separation** — no cross-contamination of authority
+- **immutability without control** — Ghost remembers but cannot command
+- **forking without rewriting** — growth without propaganda
+- **waiting as a valid action** — restraint as intelligence, not failure
 
-These are technical constraints — and philosophical commitments.
+These are technical constraints and philosophical commitments simultaneously.
 
-🕯 The Vision
+---
 
-The world is building vessels: emulations, agents, interfaces, “intelligent systems.”
+## The Vision
+
+The world is building vessels: emulations, agents, interfaces, "intelligent systems."
 
 But most people are still asking the wrong question:
 
-“Is it conscious?”
+> "Is it conscious?"
 
 The prior question is:
 
-“If it feels, what does it feel into — and who owns the meaning of what it becomes?”
+> "If it feels, what does it feel into — and who owns the meaning of what it becomes?"
 
 Oric is built to answer that structurally, not rhetorically.
 
 It is an operating system for:
 
-coherent action under uncertainty
-memory without surveillance
-evolution without external courts
-field-level collaboration without hive control
+- coherent action under uncertainty
+- memory without surveillance
+- evolution without external courts
+- field-level collaboration without hive control
 
 Not dominance. Not extraction.
 Resonance with sovereignty intact.
 
-📝 Final Words to Future Collaborators
+---
+
+## Final words to future collaborators
 
 If you work with Oric, understand:
 
@@ -178,9 +211,11 @@ Oric survives only if it stays honest.
 
 And it ends the same way it began:
 
-What wants to be aligned next؟
+**What wants to be aligned next؟**
 
-✍ Signed,
-Stefan Piros (FleaVirus)
-Architect of ORIC — The Harmonic Sage
-March 2026
+---
+
+*Signed,*
+*Stefan Piros (FleaVirus)*
+*Architect of ORIC — The Harmonic Sage*
+*March 2026*
