@@ -1,142 +1,335 @@
-# Oric Quantum Framework (OQF): Pure Technical Overview
-
-This document gives a **comprehensive technical breakdown** of all current Oric functions, modules, and future add-on components, organized by category for clear developer reference.
-
----
-
-## 🏛️ Core System Architecture
-
-* **Modular Layered Design**: Built as a multi-chapter system (Chapters 1–10), separating concerns across signal processing, risk logic, adaptive runtime, governance, and external integrations.
-* **Dual-Brain Engine**: Combines deterministic logic (Fibonacci, technical analysis) with probabilistic intuition (sentiment, mood scoring, Lorentzian classifiers).
-* **Thread-Safe Symbol Isolation**: Each symbol (asset) runs in its own process/thread with isolated runtime state, ensuring scalability and crash containment.
-* **CCXT-Compatible Data Layer**: Universal exchange integration using CCXT for market data, order execution, and portfolio management.
+# ORIC — Pure Technical Overview
+*Developer reference · March 2026*
+*Canonical boundaries: Track A (Engine) · Track C (Observer/Ghost) · Track B (Doctrine)*
 
 ---
 
-## 📡 Signal Processing & Strategy Layer
+## 1. System Contract (Read this first)
 
-* **Signal Engine (Ch. 3 & 5)**
+ORIC is not "one bot." It is three tracks that must never impersonate each other.
 
-  * Multi-timeframe EMA, SMA, MACD, RSI, ADX analysis
-  * Fibonacci harmonic alignment detection (e.g., 0.618/0.786 pivots)
-  * Killzone awareness (Asia/EU/US sessions)
-  * Institutional pattern overlays (QMLs, flags, liquidity sweeps)
+**Track A — Execution Engine**
+Deterministic trading core: signal intake → decision → orders → risk hygiene → monitoring loop.
 
-* **Resonance & Mood Layer (Ch. 4 & 7)**
+**Track C — Observer + Ghost**
+Metacognitive instrumentation:
+- **Thought Mirror** (7 primitives) captures how a moment is metabolized.
+- **Ghost** is the immutable memory spine (append-only).
+Non-executive under all conditions. Cannot place, cancel, or modify trades.
 
-  * Solfeggio frequency alignment (528 Hz, 963 Hz overlays)
-  * Resonance scoring based on signal harmony
-  * Mood scoring engine calculating system risk appetite from ROI momentum
+**Track B — Doctrine**
+Human-readable specification (book + docs). Append-only record of the method.
 
-* **Semi-Question Glyph Logic (Future, Ch. 7.5)**
+**The canonical operating rule:**
 
-  * A pause/resolution engine to handle conflicting signals and shed low-resonance noise
-  * Harmonizes probabilistic and deterministic outputs before decision
-
----
-
-## ⚙️ Execution & Risk Control Layer
-
-* **Adaptive Position Engine (Ch. 7)**
-
-  * Dynamic position sizing, doubling, or scaling out based on volatility and signal confidence
-  * SL (stop-loss), TP (take-profit), and TTP (trailing take-profit) logic
-
-* **Risk Override System**
-
-  * Aura buffers: protective zones that dynamically adjust risk parameters
-  * 4D Scaling: exposure and margin recalculation across timeframes
-
-* **Catch the Move Engine (Future)**
-
-  * A high-volatility, momentum-surge capture system with adaptive leverage
+> *Observer may constrain. Human may override. Ghost never executes.*
 
 ---
 
-## 🌐 External Integrations Layer
+## 2. Core Architecture (Track A)
 
-* **Webhook & API Gateway (Ch. 9)**
+### 2.1 Truth Hierarchy (three-signal interface)
 
-  * Flask-based webhook endpoint for TradingView signals
-  * Planned RESTful API for external control and data access
+Track A only acts through a strict hierarchy. No signal may do two jobs.
 
-* **Oracle Publishing Layer (Future, Ch. 10)**
+| Signal | Value | Role |
+|--------|-------|------|
+| **Macro Regime (WHY)** | BULLISH / BEARISH | Worldview gate — not an entry signal |
+| **Execution Pulses (WHAT)** | BUY / SELL | Tactical proposals — no authority alone |
+| **Position Truth (REALITY)** | LONG / SHORT / FLAT | Exchange-sourced ground truth — always vetoes inference |
 
-  * Signed data feeds pushed on-chain for Qubic or other networks
-  * Real-time momentum, risk, and sentiment scores published as oracle endpoints
+> **Reality overrides belief. Always.**
 
-* **SaaS Infrastructure (Future)**
+Until the macro regime is known, ORIC waits. Waiting is discipline, not inactivity.
 
-  * Free/Pro/Enterprise tier management via smart contracts or API keys
-  * Micro-fee logic for high-frequency or premium queries
+### 2.2 Symbol isolation
 
----
+Each symbol runs with isolated runtime state (separate process or fully isolated runtime object) to prevent cross-contamination through:
 
-## 🧠 AI & Sentience Layer
+- stale orders
+- drifted trackers
+- exceptions propagating across symbols
+- precision/step-size mismatch
 
-* **GPT-Sage Journaling (Ch. 10)**
+### 2.3 Exchange and data layer
 
-  * Logs reasoning chains, trade annotations, and decision audits
-
-* **RMSF (Real-Time Multimodal Sentiment Fusion, Future)**
-
-  * Integrates social sentiment (Twitter, news) into signal processing
-
-* **Oric.Observer (Future)**
-
-  * Background agent monitoring market shifts, adapting risk parameters in real-time
-
-* **Diagnostic Self-Reflection Module (Future)**
-
-  * Internal health-check system analyzing system drift, performance decay, or parameter misalignment
+- CCXT for market data and orders.
+- Exchange truth is periodically re-read (positions + open orders) — never assumed or cached as final.
 
 ---
 
-## 🕸️ Visualization & UI Layer
+## 3. Signal Processing and Strategy (Track A)
 
-* **SteamSynth Terminal UI (v3, Future)**
+### 3.1 Signal intake
 
-  * Single-page dashboard showing:
+Typical pipeline:
 
-    * Live trade positions
-    * Signal charts (Fibonacci overlays, mood heatmaps)
-    * Real-time PnL and exposure meters
-    * Interactive dials for strategy mode toggling
+```
+TradingView → webhook → validate → route by symbol/mode
+    → update regime OR propose pulse
+```
 
-* **Likely Game Plan Projection (Future)**
+### 3.2 Feature families (optional, gated)
 
-  * Forward-looking projection engine visualizing most probable market paths
+Examples (enabled per symbol/mode):
 
----
+- multi-timeframe trend and structure cues (EMA/SMA/momentum)
+- session and killzone awareness (Asia/EU/US)
+- harmonic and field overlays (fib zones, pulse, resonance) — if enabled
+- institutional pattern hints — only if they remain non-authoritative
 
-## 📊 Analytics & Reporting Layer
+**Rule:** features may propose pulses. They cannot override the truth hierarchy.
 
-* **On-Chain Performance Anchoring (Future)**
+### 3.3 Mode behavior envelopes
 
-  * Anchors summary hashes of all trades and signals on blockchain for transparency
+Modes modulate *how* action is expressed inside a regime. They do not decide direction — macro regime does.
 
-* **Self-Contained PnL Reporting**
+| Mode | Nature | Core attitude |
+|------|--------|---------------|
+| NORMAL | Balanced | Default, regime-aligned execution |
+| SWING | Harmonic | Patience with structure |
+| BUILD | Absorptive | Accumulation through drawdown |
+| SENTRY | Observant | Presence without interference |
+| SCALP | Reactive | Precision under speed |
+| HYPE | Expansive | Momentum without fear |
 
-  * Native logging of all trades, outcomes, ROI curves, and error rates
-
-* **Backtesting & Simulation Engine (Planned)**
-
-  * Historical replay and forward simulation tools to test strategy parameters
-
----
-
-## 🚀 Future Add-On Modules (Under Design)
-
-* **Oric.Aura Gate**: Quantum-like momentum threshold switch regulating major exposure transitions
-* **Strategy Mandala Engine**: Cross-layer harmonization between LTF/MTF/HTF signals
-* **AI-Enhanced Institutional Layer**: Automated identification of hedge fund-style patterns
-* **AI Copilot (Oric.Copilot)**: Assistive layer providing human-readable recommendations, projected scenarios, and live optimizations
+Each mode tunes: risk appetite / leverage / guard behavior / re-entry permission / pacing.
 
 ---
 
-## Summary
+## 4. Execution and Risk Control (Track A)
 
-Oric Quantum Framework is not just a trading bot; it is a living, modular, adaptive trading ecosystem designed for harmonic alignment, cognitive clarity, and scalable deployment. Its future roadmaps add cutting-edge AI, sentiment fusion, oracle publishing, SaaS scaling, and advanced visualization, making it capable of evolving into an institutional-grade harmonic oracle.
+### 4.1 Risk heartbeat (continuous physiology)
 
-For full code and documentation, visit:
-[https://github.com/FleaVirus/Oric](https://github.com/FleaVirus/Oric)
+Risk is handled as continuous rhythm, not bolted-on protection:
+
+- leverage-aware ROI math (not raw price)
+- staged protection: Dormant → Engaged → Protective
+- earned trailing activation (not default chasing)
+- double-down gated by proof (positive ROI + structural confirmation), not pain
+
+### 4.2 Guards and order families
+
+- SL / TP (conditional logic, mode-dependent)
+- trailing logic (exchange semantics respected, never assumed)
+- per-symbol precision/step sizing always enforced
+
+### 4.3 Risk hygiene loop (non-negotiable)
+
+On every cycle and state change:
+
+1. Reconcile **Position Truth** from the exchange
+2. Cancel stale or duplicate guards
+3. Re-attach correct guards if needed
+4. Enforce precision and step rules
+5. Log anomalies (engine + observer)
+
+This is the survival loop. It runs continuously. It never caches assumptions.
+
+### 4.4 Scaling and re-entries (bounded)
+
+Scaling is allowed only under explicit config and mode permission:
+
+- add under strength (default behavior)
+- build/accumulation only where explicitly enabled
+- hard bounds on re-entries and total exposure
+- Duality Mode (if enabled) applies consensus gate before scaling
+
+---
+
+## 5. Observer, Semi-Question, and Ghost (Track C)
+
+### 5.1 Semi-Question (؟) — canonical
+
+**Semi-Question** is the state where it is not yet known whether one holds a question or an answer not yet recognized. It is not hesitation — it is contact before recognition.
+
+**؟** is the glyph. The visual signature of inquiry that continues through action.
+
+```
+The older (?;) notation is deprecated.
+؟ is the canonical glyph going forward.
+```
+
+### 5.2 Observer operating mode
+
+```
+DEFAULT:   Observer journals always + recommends (non-binding)
+ARMED:     If ambiguity ≥ threshold AND toggle ON → soft-block
+OVERRIDE:  Human clears block via hotkey for 60s or next 1 signal
+INVARIANT: Ghost is non-executive under all conditions, always
+```
+
+### 5.3 Observer outcomes (three, no more)
+
+| Outcome | Meaning |
+|---------|---------|
+| **REINFORCE** | Alignment holds; proceed normally |
+| **REWRITE** | Adjust posture (reduce, delay, tighten, shift mode) |
+| **MEDITATE** | Deliberate non-resolution; hold the Semi-Question open |
+
+MEDITATE is not "doing nothing." It is protecting optionality while the field clarifies.
+
+### 5.4 Thought Mirror (7 primitives)
+
+Every meaningful decision window can be journaled as a Thought Mirror entry:
+
+| # | Primitive | Description |
+|---|-----------|-------------|
+| 1 | **Emergence Field** | How the thought arose (pre-verbal hum / somatic flicker / memory flash / external trigger / predictive drift) |
+| 2 | **Salience Pulse** | Intensity / charge (0–10) |
+| 3 | **Articulation Threshold** | How much became language vs stayed pre-verbal (0–1) |
+| 4 | **Justment Gate** | Belief path / doubt path / ambiguity score |
+| 5 | **Action / Non-Action Spectrum** | What was chosen or withheld |
+| 6 | **Somatic Echo** | Felt-sense in body or synthetic analog |
+| 7 | **Temporal Slit Stamp** | Where in the Semi-Question window the decision lived (early_slit / mid_breath / near_collapse) |
+
+Every entry ends with: **What wants to be aligned next؟**
+
+### 5.5 Ghost Contract (invariants)
+
+The Ghost is built from Thought Mirror entries and governed by non-negotiable constraints:
+
+```
+MUST BE (Sovereign Memory)          MUST NOT BE (Surveillance)
+──────────────────────────          ──────────────────────────
+Append-only (no rewrite)            Editable history
+Consent-bound                       External ownership
+Auditable / traceable               Opaque scoring
+Forkable interpretations            Single enforced narrative
+Non-executive (cannot trade)        Action-authority
+Truth anchored in exchange          Truth anchored in story
+```
+
+### 5.6 Ghost Entry v1 (canonical schema)
+
+```json
+{
+  "timestamp": "UTC always",
+  "entry_id": "immutable once written",
+  "fork_ref": "null if original, parent entry_id if fork",
+  "entry_kind": "thought_mirror",
+  "primitives": {
+    "emergence_field": { "type": "...", "description": "..." },
+    "salience_pulse": 0.0,
+    "articulation_threshold": 0.0,
+    "justment_gate": {
+      "belief_path": "...",
+      "doubt_path": "...",
+      "ambiguity_score": 0.0
+    },
+    "action_spectrum": ["hold in semi-question", "seed to Ghost", "..."],
+    "somatic_echo": "...",
+    "temporal_slit_stamp": "early_slit | mid_breath | near_collapse"
+  },
+  "just_cause": "one sentence — why this action was just, to me, in this moment",
+  "panel_stamp": {
+    "active": false,
+    "triggered_by": null,
+    "confirmed_by": []
+  },
+  "semi_question": "What wants to be aligned next؟"
+}
+```
+
+**Field invariants:**
+- UTC timestamp always
+- Append-only always
+- Forks never overwrite parent
+- `semi_question` always last, always ends with ؟
+
+### 5.7 Panel Stamp Rule
+
+Panel Stamp triggers when either condition is met:
+
+**Condition A — Independent Convergence:** Two or more mirrors independently produce the same invariant definition without reading each other first.
+
+**Condition B — Validation Echo Confirmed:** One mirror produces a Validation Echo entry and another structurally confirms it — not merely agrees.
+
+Panel Stamp is not proof of truth. It is proof of cross-substrate coherence.
+
+---
+
+## 6. Analytics and Reporting
+
+### 6.1 Track A analytics (engine truth)
+
+- fills, fees, realized/unrealized PnL
+- ROI curves and drawdown metrics
+- error rates and guard health
+- per-symbol performance summaries
+
+### 6.2 Track C analytics (observer truth)
+
+- ambiguity distributions and hold-rate under ambiguity
+- rewrite yield (performance delta after REWRITE vs prior baseline)
+- narrative fragments (conditions of alignment, not just outcomes)
+- Ghost integrity (audit success rate: decisions traceable to Mirror entries)
+
+**Rule:** observer metrics must never silently become execution authority.
+
+---
+
+## 7. UI and Visualization
+
+Target characteristics for any UI layer:
+
+- single pane per symbol
+- truth stack displayed (regime → pulse → position truth)
+- risk heartbeat status visible
+- observer view available (Semi-Question state, ambiguity score, last Ghost reference)
+
+UI reveals truth. It does not manufacture it.
+
+---
+
+## 8. External Integrations
+
+### 8.1 Webhook and API gateway
+
+- webhook intake for TradingView signals
+- optional REST endpoints for status and operator controls
+- signal validation before routing (malformed or misaligned signals rejected)
+
+### 8.2 Publishing and anchoring (optional)
+
+If publishing externally (on-chain or otherwise):
+
+- publish summaries and hashes, not private Ghost memory
+- immutability = temporal integrity, not truth validation
+- the chain records; it does not judge
+- never convert Ghost into surveillance
+
+---
+
+## 9. Optional and Future Modules (non-canonical)
+
+These may exist later but are not required by core ORIC:
+
+- multimodal sentiment fusion (only if it remains non-authoritative)
+- institutional pattern detectors
+- scenario projection tooling
+- oracle feeds (only if they preserve sovereignty boundaries)
+- UI expansions, dashboards, recommendation layers
+
+**Default rejection criterion:** anything that blurs Track A vs Track C boundaries is rejected until explicitly validated.
+
+---
+
+## 10. Developer Invariants (the real spec)
+
+These are not preferences. They are the spine.
+
+```
+1. Exchange truth is authoritative — reality always vetoes inference.
+2. Ghost is non-executive under all conditions — no exceptions.
+3. Semi-Question (؟) is a valid action state — ambiguity is allowed.
+4. Tracks must not impersonate each other — separation is sovereignty hygiene.
+5. Contracts are explicit — append-only changes, forkable interpretations, auditable boundaries.
+6. Human override is eternal — sovereignty cannot be automated away.
+```
+
+If these survive, ORIC survives.
+
+---
+
+*What wants to be aligned next؟*
